@@ -13,7 +13,6 @@ A fun and interactive web application for creating pixel art. Customize your gri
 
 ## 📂 Project Structure
 
-- pixel-art: Project name
 - index.html: Main HTML file
 - style.css: Styles for the application
 - script.js: JavaScript functionality
