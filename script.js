@@ -1,3 +1,4 @@
+// script.js
 const grid = document.getElementById("grid");
 const gridSizeInput = document.getElementById("gridSize");
 const colorPicker = document.getElementById("colorPicker");
@@ -178,14 +179,22 @@ document.body.onmouseup = () => (isMouseDown = false);
 
 gridSizeInput.addEventListener("change", () => createGrid(gridSizeInput.value));
 
+// Fancy theme toggle button
+function updateThemeIcon() {
+  const isDark = document.body.classList.contains("dark-theme");
+  themeToggle.textContent = isDark ? "🌞 Light" : "🌙 Dark";
+}
+
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme");
   localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
+  updateThemeIcon();
 });
 
 // Load theme on start
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-theme");
 }
+updateThemeIcon();
 
 loadDrawing();
