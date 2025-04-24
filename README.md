@@ -1,4 +1,4 @@
-# 🎨 Pixel Art Creator
+# 🎨 Pixel Art
 
 A fun and interactive web application for creating pixel art. Customize your grid, save your color palette, and export your creations as JSON or PNG files.
 
@@ -14,21 +14,14 @@ A fun and interactive web application for creating pixel art. Customize your gri
 ## 📂 Project Structure
 
 - pixel-art-creator/
+- Main HTML file
   ├── index.html
-
-# Main HTML file
-
-├── style.css
-
-# Styles for the application
-
-├── script.js
-
-# JavaScript functionality
-
-├── README.md
-
-# Project documentation
+- Styles for the application
+  ├── style.css
+- JavaScript functionality
+  ├── script.js
+- Project documentation
+  ├── README.md
 
 ## 🛠️ Installation
 
@@ -70,11 +63,25 @@ A fun and interactive web application for creating pixel art. Customize your gri
 Contributions are welcome! To contribute:
 
 1. Fork the repository.
+
 2. Create a new branch:
-- git checkout -b feature-name
+
+   ```bash
+   git checkout -b feature-name
+   ```
+
 3. Commit your changes:
-- git commit -m "Add feature-name"
-4. Push to your branch: git push origin feature-name
+
+   ```bash
+   git commit -m "Add feature-name"
+   ```
+
+4. Push to your branch:
+
+   ```bash
+   git push origin feature-name
+   ```
+
 5. Open a pull request.
 
 📄 License
@@ -83,5 +90,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 📧 Contact
 For questions or feedback, feel free to reach out:
 
-GitHub: EricCheyne
-Email: eric.cheyne@gmail.com
+## GitHub: EricCheyne
+
+## Email: eric.cheyne@gmail.com
