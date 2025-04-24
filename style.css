@@ -1,76 +1,64 @@
+/* General styles */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: sans-serif;
-    background-color: #f0f0f0;
+    padding: 0;
+    background-color: #f4f4f4;
     color: #333;
-    transition: background-color 0.4s, color 0.4s;
 }
 
-.dark-theme {
-    background-color: #1e1e1e;
-    color: #eee;
+/* Controls section */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
 }
 
-#themeToggle {
+.controls label {
+    font-size: 14px;
+}
+
+button {
     cursor: pointer;
-    background-color: #ddd;
+    padding: 5px 10px;
     border: none;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-    border-radius: 2rem;
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
 }
 
-#themeToggle .toggle-icon {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+button:hover {
+    background-color: #0056b3;
 }
 
-#themeToggle.toggled {
-    transform: scale(1.1);
-    background-color: #bbb;
+/* Grid container */
+#grid {
+    display: grid;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    background-color: #fff;
 }
 
-.dark-theme #themeToggle {
+/* Dark theme */
+body.dark {
     background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark .controls {
+    background-color: #444;
+    border-bottom: 1px solid #555;
+}
+
+body.dark button {
+    background-color: #555;
     color: #fff;
 }
 
-.dark-theme #themeToggle.toggled {
-    background-color: #444;
-}
-
-#palette {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 1rem;
-}
-
-.palette-color {
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.palette-color:hover {
-    transform: scale(1.1);
-}
-
-.palette-color.dragging {
-    opacity: 0.5;
-}
-
-.grid-cell {
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+body.dark button:hover {
+    background-color: #777;
 }

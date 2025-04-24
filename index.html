@@ -3,36 +3,36 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0" />
     <title>Pixel Art Creator</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 
 <body>
     <h1>🎨 Pixel Art Creator</h1>
-    <div class="controls">
+    <section class="controls">
         <label for="colorPicker">Pick a Color:</label>
         <input type="color" id="colorPicker" value="#000000" />
-        <button id="addColorBtn">➕ Save to Palette</button>
+        <button id="addColorBtn" aria-label="Add Color to Palette">➕ Save to Palette</button>
 
-        <div id="palette"></div>
+        <div id="palette" aria-label="Color Palette"></div>
 
         <label for="gridSize">Grid Size:</label>
-        <input type="number" id="gridSize" value="16" min="4" max="64" />
+        <input type="number" id="gridSize" value="16" min="4" max="64" required />
 
-        <button id="clearBtn">Clear</button>
-        <button id="exportBtn">Export JSON</button>
+        <button id="clearBtn" aria-label="Clear the Grid">Clear</button>
+        <button id="exportBtn" aria-label="Export Grid as JSON">Export JSON</button>
         <label for="importFile">Import JSON:</label>
         <input type="file" id="importFile" accept=".json" />
-        <button id="exportPngBtn">📷 Export PNG</button>
-        <button id="themeToggle">🌓 Theme</button>
-    </div>
+        <button id="exportPngBtn" aria-label="Export Grid as PNG">📷 Export PNG</button>
+        <button id="themeToggle" aria-label="Toggle Theme">🌓 Theme</button>
+    </section>
 
     <!-- Grid container where the pixel canvas will be created -->
-    <div id="grid"></div>
+    <div id="grid" aria-label="Pixel Art Grid"></div>
 
     <!-- Include the script for the functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 
