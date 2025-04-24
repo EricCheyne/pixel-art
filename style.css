@@ -1,52 +1,78 @@
 body {
+    margin: 0;
     font-family: sans-serif;
-    text-align: center;
-    background-color: #f5f5f5;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.4s, color 0.4s;
 }
 
-body.dark-theme {
+.dark-theme {
     background-color: #1e1e1e;
-    color: #f0f0f0;
+    color: #eee;
 }
 
-body.dark-theme .grid-cell {
-    border-color: #444;
+#themeToggle {
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-body.dark-theme .palette-color {
-    border: 1px solid #666;
+#themeToggle .toggle-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
 }
 
-h1 {
-    margin-top: 20px;
+#themeToggle.toggled {
+    transform: scale(1.1);
+    background-color: #bbb;
 }
 
-.controls {
-    margin: 20px;
+.dark-theme #themeToggle {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-theme #themeToggle.toggled {
+    background-color: #444;
 }
 
 #palette {
-    display: inline-flex;
-    gap: 4px;
-    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 1rem;
 }
 
 .palette-color {
     width: 24px;
     height: 24px;
-    border: 2px solid #ccc;
+    border-radius: 4px;
+    border: 1px solid #ccc;
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-#grid {
-    margin-top: 10px;
-    display: grid;
-    width: 500px;
-    height: 500px;
-    border: 2px solid #333;
+.palette-color:hover {
+    transform: scale(1.1);
+}
+
+.palette-color.dragging {
+    opacity: 0.5;
 }
 
 .grid-cell {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
     border: 1px solid #ddd;
-    background-color: white;
 }
+
+```
