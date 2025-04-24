@@ -1,10 +1,10 @@
-// script.js
 const grid = document.getElementById("grid");
 const gridSizeInput = document.getElementById("gridSize");
 const colorPicker = document.getElementById("colorPicker");
 const palette = document.getElementById("palette");
 const symmetryToggle = document.getElementById("symmetryToggle");
 const addColorBtn = document.getElementById("addColorBtn");
+const themeToggle = document.getElementById("themeToggle");
 
 let gridData = [];
 let isMouseDown = false;
@@ -177,5 +177,15 @@ document.body.onmousedown = () => (isMouseDown = true);
 document.body.onmouseup = () => (isMouseDown = false);
 
 gridSizeInput.addEventListener("change", () => createGrid(gridSizeInput.value));
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+  localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
+});
+
+// Load theme on start
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-theme");
+}
 
 loadDrawing();
