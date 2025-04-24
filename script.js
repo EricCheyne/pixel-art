@@ -1,4 +1,5 @@
 // script.js
+
 const grid = document.getElementById("grid");
 const gridSizeInput = document.getElementById("gridSize");
 const colorPicker = document.getElementById("colorPicker");
