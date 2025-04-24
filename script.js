@@ -2,8 +2,14 @@ const grid = document.getElementById("grid");
 const colorPicker = document.getElementById("colorPicker");
 const gridSizeInput = document.getElementById("gridSize");
 const clearBtn = document.getElementById("clearBtn");
+const exportBtn = document.getElementById("exportBtn");
+const importFile = document.getElementById("importFile");
+const addColorBtn = document.getElementById("addColorBtn");
+const palette = document.getElementById("palette");
+const exportPngBtn = document.getElementById("exportPngBtn");
 
 let gridData = [];
+let isPainting = false;
 
 function createGrid(size) {
   grid.innerHTML = "";
@@ -17,17 +23,23 @@ function createGrid(size) {
     cell.style.backgroundColor = "#ffffff";
     cell.dataset.index = i;
 
-    cell.addEventListener("click", () => {
-      const color = colorPicker.value;
-      cell.style.backgroundColor = color;
-      gridData[i] = color;
-      saveDrawing();
+    cell.addEventListener("mousedown", paintCell);
+    cell.addEventListener("mouseover", (e) => {
+      if (isPainting) paintCell.call(e.target);
     });
 
     grid.appendChild(cell);
   }
 
   loadDrawing();
+}
+
+function paintCell() {
+  const color = colorPicker.value;
+  const index = this.dataset.index;
+  this.style.backgroundColor = color;
+  gridData[index] = color;
+  saveDrawing();
 }
 
 function saveDrawing() {
@@ -56,14 +68,7 @@ function clearGrid() {
   localStorage.removeItem("pixelArt");
 }
 
-gridSizeInput.addEventListener("change", () => {
-  createGrid(gridSizeInput.value);
-});
-
-clearBtn.addEventListener("click", clearGrid);
-
-// Export as JSON file
-document.getElementById("exportBtn").addEventListener("click", () => {
+function exportJSON() {
   const dataStr = JSON.stringify({
     size: gridSizeInput.value,
     colors: gridData
@@ -74,13 +79,9 @@ document.getElementById("exportBtn").addEventListener("click", () => {
   a.href = url;
   a.download = "pixel-art.json";
   a.click();
-});
+}
 
-// Import JSON
-document.getElementById("importFile").addEventListener("change", function () {
-  const file = this.files[0];
-  if (!file) return;
-
+function importJSON(file) {
   const reader = new FileReader();
   reader.onload = function (e) {
     const data = JSON.parse(e.target.result);
@@ -90,6 +91,39 @@ document.getElementById("importFile").addEventListener("change", function () {
     setTimeout(() => loadDrawing(), 50);
   };
   reader.readAsText(file);
-});
+}
 
+function addColorToPalette() {
+  const color = colorPicker.value;
+  const colorBox = document.createElement("button");
+  colorBox.className = "palette-color";
+  colorBox.style.backgroundColor = color;
+  colorBox.addEventListener("click", () => {
+    colorPicker.value = color;
+  });
+  palette.appendChild(colorBox);
+}
+
+function exportAsPNG() {
+  html2canvas(grid).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'pixel-art.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+}
+
+// Events
+gridSizeInput.addEventListener("change", () => createGrid(gridSizeInput.value));
+clearBtn.addEventListener("click", clearGrid);
+exportBtn.addEventListener("click", exportJSON);
+importFile.addEventListener("change", () => importJSON(importFile.files[0]));
+addColorBtn.addEventListener("click", addColorToPalette);
+exportPngBtn.addEventListener("click", exportAsPNG);
+
+// Mouse paint tracking
+document.body.addEventListener("mousedown", () => isPainting = true);
+document.body.addEventListener("mouseup", () => isPainting = false);
+
+// Initialize
 createGrid(gridSizeInput.value);
