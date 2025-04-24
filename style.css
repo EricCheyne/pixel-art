@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.controls {
+    margin: 20px;
+}
+
+#grid {
+    display: grid;
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    border: 2px solid #333;
+}
+
+.grid-cell {
+    border: 1px solid #ddd;
+    background-color: white;
+}
