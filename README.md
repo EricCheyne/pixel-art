@@ -13,15 +13,11 @@ A fun and interactive web application for creating pixel art. Customize your gri
 
 ## 📂 Project Structure
 
-- pixel-art-creator/
-- Main HTML file
-  ├── index.html
-- Styles for the application
-  ├── style.css
-- JavaScript functionality
-  ├── script.js
-- Project documentation
-  ├── README.md
+- pixel-art: Project name
+- index.html: Main HTML file
+- style.css: Styles for the application
+- script.js: JavaScript functionality
+- README.md: Project documentation
 
 ## 🛠️ Installation
 
